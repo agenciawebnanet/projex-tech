@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const validKinds = ['presentation', 'proposal', 'content', 'analysis'];
 export async function POST(request: NextRequest) {
+  const adminKey = process.env.ADMIN_API_KEY;
+  if (!adminKey || request.headers.get('x-admin-key') !== adminKey) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
   const body = await request.json().catch(() => null) as { kind?: string; company?: string; segment?: string; notes?: string; language?: string } | null;
   if (!body || !validKinds.includes(body.kind || '')) return NextResponse.json({ error: 'Solicitud inválida.' }, { status: 400 });
   const url = process.env.AI_API_URL, key = process.env.AI_API_KEY, model = process.env.AI_MODEL;

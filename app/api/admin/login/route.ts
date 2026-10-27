@@ -1,0 +1,2 @@
+import {NextRequest,NextResponse} from 'next/server';
+export async function POST(request:NextRequest){const {password}=await request.json().catch(()=>({}));if(!process.env.ADMIN_PASSWORD||password!==process.env.ADMIN_PASSWORD)return NextResponse.json({error:'Unauthorized'},{status:401});const r=NextResponse.json({ok:true});r.cookies.set('projex_admin',password,{httpOnly:true,secure:true,sameSite:'strict',path:'/admin',maxAge:60*60*8});return r}

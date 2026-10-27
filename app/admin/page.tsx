@@ -1,0 +1,1 @@
+export default function Admin(){return <main style={{fontFamily:'Arial',padding:40}}><h1>Projex Tech · Administração</h1><p>Módulos internos protegidos. Configure o provedor de dados e as credenciais de IA antes de habilitar CRM, materiais e prospecção.</p></main>}
