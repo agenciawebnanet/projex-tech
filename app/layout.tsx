@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './styles.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://projextech.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://projex-tech.vercel.app'),
   title: { default: 'Projex Tech | Tecnología comercial para crecer', template: '%s | Projex Tech' },
   description: 'Automatización, CRM, dashboards e integraciones para empresas que quieren vender y operar mejor.',
   alternates: { languages: { es: '/', pt: '/?lang=pt' } },
